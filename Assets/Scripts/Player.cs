@@ -5,7 +5,8 @@ using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
-    public float speed = 10;
+    public float speed;
+    public float DefaultSpeed = 10;
     public Text lifeText;
     public Text pointsText;
     public Text penaltyText;
@@ -31,6 +32,8 @@ public class Player : MonoBehaviour
     public float DefaultPenalty = 5f;
 
     public bool IsFrozen;
+    public bool IsFaster;
+    public float FasterSpeed = 20;
 
     // Start is called before the first frame update
     void Start()
@@ -39,6 +42,7 @@ public class Player : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         lifeText.text = Health.ToString();
         UpdatePoints();
+        speed = DefaultSpeed;
         penaltyText.text = "0";
     }
     
@@ -64,9 +68,23 @@ public class Player : MonoBehaviour
         }
     }
 
+    public void Run(float horizontalInput)
+    {
+        rb.velocity = new Vector2(horizontalInput * speed, rb.velocity.y);
+        Running(horizontalInput);
+    }
+
     public void Freeze()
     {
         IsFrozen = true;
+        PenaltyTime = DefaultPenalty;
+        penaltyText.text = PenaltyTime.ToString();
+    }
+
+    public void Faster()
+    {
+        IsFaster = true;
+        speed = FasterSpeed;
         PenaltyTime = DefaultPenalty;
         penaltyText.text = PenaltyTime.ToString();
     }
@@ -100,9 +118,11 @@ public class Player : MonoBehaviour
         }
         else
         {
-            if (IsFrozen)
+            if (IsFrozen || IsFaster)
             {
                 IsFrozen = false;
+                IsFaster = false;
+                speed = DefaultSpeed;
                 penaltyText.text = "0";
             }
         }

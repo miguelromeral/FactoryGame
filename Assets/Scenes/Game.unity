@@ -1670,7 +1670,8 @@ MonoBehaviour:
   boosters:
   - {fileID: 7902094801627083112, guid: ea5907a76ad3d7b419ebca5ac30b68cd, type: 3}
   powers:
-  - {fileID: 6118806281566243322, guid: ebb2c789cb0cc444e8803768359482b8, type: 3}
+  - {fileID: 7649212366743114194, guid: fffc7a1cbadc719438e96222a7ffbd74, type: 3}
+  - {fileID: 7649212366743114194, guid: fffc7a1cbadc719438e96222a7ffbd74, type: 3}
   minTimeBetweenSpawns: 0.5
   maxTimeBetweenSpawns: 3
   FixedMaxTime: 1
@@ -1909,6 +1910,7 @@ MonoBehaviour:
   speed: 10
   lifeText: {fileID: 1754961364}
   pointsText: {fileID: 606930818}
+  penaltyText: {fileID: 1067119401}
   losePanel: {fileID: 1758772732}
   lifeImage: {fileID: 1556047901}
   MaxLife: 60
@@ -1917,6 +1919,7 @@ MonoBehaviour:
   PenaltyTime: 0
   DefaultPenalty: 5
   IsFrozen: 0
+  IsFaster: 0
 --- !u!4 &1586142965
 Transform:
   m_ObjectHideFlags: 0

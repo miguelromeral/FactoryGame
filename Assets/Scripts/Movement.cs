@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
-    public float moveSpeed;
     public GameObject character;
 
     private Player playerScript;
@@ -16,7 +15,6 @@ public class Movement : MonoBehaviour
     {
         playerScript = GameObject.FindWithTag("Player").GetComponent<Player>();
         ScreenWidth = Screen.width;
-        moveSpeed = playerScript.speed;
         characterBody = character.GetComponent<Rigidbody2D>();
     }
     
@@ -32,7 +30,7 @@ public class Movement : MonoBehaviour
             {
                 if (Input.GetTouch(0).position.x > ScreenWidth / 2)
                 {
-                    if ((px.x + moveSpeed * 1f) < ScreenWidth)
+                    if ((px.x + playerScript.speed * 1f) < ScreenWidth)
                         RunCharacter(1.0f);
                     else
                         RunCharacter(0f);
@@ -40,7 +38,7 @@ public class Movement : MonoBehaviour
                 if (Input.GetTouch(0).position.x < ScreenWidth / 2)
                 {
 
-                    if ((px.x + moveSpeed * -1f) > 0)
+                    if ((px.x + playerScript.speed * -1f) > 0)
                         RunCharacter(-1.0f);
                     else
                         RunCharacter(0f);
@@ -55,11 +53,9 @@ public class Movement : MonoBehaviour
 
     private void RunCharacter(float horizontalInput)
     {
-        if (characterBody != null)
+        if (playerScript != null)
         {
-            characterBody.velocity = new Vector2(horizontalInput * moveSpeed,
-                characterBody.velocity.y);
-            playerScript.Running(horizontalInput);
+            playerScript.Run(horizontalInput);
         }
     }
 }

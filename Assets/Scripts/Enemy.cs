@@ -71,6 +71,10 @@ public class Enemy : MonoBehaviour
                     playerScript.Collide(points, boost);
                     playerScript.Freeze();
                     break;
+                case "Power_Fast":
+                    playerScript.Collide(points, boost);
+                    playerScript.Faster();
+                    break;
             }
 
             Instantiate(explosion, transform.position, Quaternion.identity);
@@ -87,6 +91,7 @@ public class Enemy : MonoBehaviour
                     playerScript.Collide(0, 0);
                     break;
                 case "Power_Freeze":
+                case "Power_Fast":
                     playerScript.Collide(points, 0);
                     break;
             }
