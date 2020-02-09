@@ -696,7 +696,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8406024e846832d44ad89b968a29ef82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 10
   character: {fileID: 1586142962}
 --- !u!20 &519420031
 Camera:
@@ -1670,8 +1669,9 @@ MonoBehaviour:
   boosters:
   - {fileID: 7902094801627083112, guid: ea5907a76ad3d7b419ebca5ac30b68cd, type: 3}
   powers:
+  - {fileID: 6118806281566243322, guid: ebb2c789cb0cc444e8803768359482b8, type: 3}
   - {fileID: 7649212366743114194, guid: fffc7a1cbadc719438e96222a7ffbd74, type: 3}
-  - {fileID: 7649212366743114194, guid: fffc7a1cbadc719438e96222a7ffbd74, type: 3}
+  - {fileID: 4544323975618703582, guid: d3727c19f82a414439bcde069b7d0a11, type: 3}
   minTimeBetweenSpawns: 0.5
   maxTimeBetweenSpawns: 3
   FixedMaxTime: 1
@@ -1908,6 +1908,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
+  DefaultSpeed: 10
   lifeText: {fileID: 1754961364}
   pointsText: {fileID: 606930818}
   penaltyText: {fileID: 1067119401}
@@ -1920,6 +1921,8 @@ MonoBehaviour:
   DefaultPenalty: 5
   IsFrozen: 0
   IsFaster: 0
+  FasterSpeed: 20
+  IsSlowed: 0
 --- !u!4 &1586142965
 Transform:
   m_ObjectHideFlags: 0

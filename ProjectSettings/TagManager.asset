@@ -10,6 +10,7 @@ TagManager:
   - Enemy
   - Power_Freeze
   - Power_Fast
+  - Power_Slow
   layers:
   - Default
   - TransparentFX

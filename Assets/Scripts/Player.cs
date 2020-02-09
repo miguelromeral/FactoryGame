@@ -35,6 +35,8 @@ public class Player : MonoBehaviour
     public bool IsFaster;
     public float FasterSpeed = 20;
 
+    public bool IsSlowed;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -89,6 +91,15 @@ public class Player : MonoBehaviour
         penaltyText.text = PenaltyTime.ToString();
     }
 
+
+    public void SlowEverything()
+    {
+        IsSlowed = true;
+        PenaltyTime = DefaultPenalty;
+        penaltyText.text = PenaltyTime.ToString();
+    }
+
+
     private void UpdatePoints()
     {
         pointsText.text = Points.ToString();
@@ -118,10 +129,11 @@ public class Player : MonoBehaviour
         }
         else
         {
-            if (IsFrozen || IsFaster)
+            if (IsFrozen || IsFaster || IsSlowed)
             {
                 IsFrozen = false;
                 IsFaster = false;
+                IsSlowed = false;
                 speed = DefaultSpeed;
                 penaltyText.text = "0";
             }

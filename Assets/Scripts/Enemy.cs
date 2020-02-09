@@ -14,6 +14,8 @@ public class Enemy : MonoBehaviour
     public float MaxAngle;
 
     float speed;
+    private float DefaultSpeed;
+    private float SlowSpeed = 4f;
 
     public GameObject explosion;
    
@@ -24,7 +26,8 @@ public class Enemy : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        speed = Random.Range(minSpeed, maxSpeed);
+        DefaultSpeed = Random.Range(minSpeed, maxSpeed);
+        speed = DefaultSpeed;
         // We get the player given its tag.
         playerScript = GameObject.FindWithTag("Player").GetComponent<Player>();
         r = GetComponent<Rigidbody2D>();
@@ -33,6 +36,14 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (gameObject.tag == "Enemy")
+        {
+            if (playerScript.IsSlowed)
+                speed = DefaultSpeed / SlowSpeed;
+            else
+                speed = DefaultSpeed;
+        }
+
         // Vector2.down ==> new Vector2(0, -1)
         transform.Translate(Vector2.down * speed * Time.deltaTime);
 
@@ -74,6 +85,10 @@ public class Enemy : MonoBehaviour
                 case "Power_Fast":
                     playerScript.Collide(points, boost);
                     playerScript.Faster();
+                    break;
+                case "Power_Slow":
+                    playerScript.Collide(points, boost);
+                    playerScript.SlowEverything();
                     break;
             }
 

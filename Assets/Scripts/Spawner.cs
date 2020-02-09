@@ -32,7 +32,7 @@ public class Spawner : MonoBehaviour
     {
         if (player != null)
         {
-            /*
+            
             if (timeBtwSpawns <= 0)
             {
                 Transform randomSpawnPoint = spawnPoints[Random.Range(0, spawnPoints.Length)];
@@ -59,7 +59,7 @@ public class Spawner : MonoBehaviour
             }
             
 
-
+            
             if (timeBtwBoosters <= 0)
             {
                 Transform randomSpawnPoint = spawnPoints[Random.Range(0, spawnPoints.Length)];
@@ -80,7 +80,7 @@ public class Spawner : MonoBehaviour
             else
             {
                 timeBtwBoosters -= Time.deltaTime;
-            }*/
+            }
 
 
 
