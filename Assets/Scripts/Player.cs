@@ -92,6 +92,7 @@ public class Player : MonoBehaviour
         IsFrozen = true;
         PenaltyTime = DefaultPenalty;
         penaltyText.text = PenaltyTime.ToString();
+        penaltyText.gameObject.SetActive(true);
     }
 
     public void Faster()
@@ -100,6 +101,7 @@ public class Player : MonoBehaviour
         speed = FasterSpeed;
         PenaltyTime = DefaultPenalty;
         penaltyText.text = PenaltyTime.ToString();
+        penaltyText.gameObject.SetActive(true);
     }
 
 
