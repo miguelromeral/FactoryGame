@@ -9,7 +9,6 @@ public class Enemy : MonoBehaviour
     public int damage;
     public int points;
     public int boost;
-    public bool Good;
 
     public float MinAngle;
     public float MaxAngle;
@@ -17,6 +16,7 @@ public class Enemy : MonoBehaviour
     float speed;
 
     public GameObject explosion;
+   
 
     Player playerScript;
     Rigidbody2D r;
@@ -59,27 +59,38 @@ public class Enemy : MonoBehaviour
         // We have to mark the Player object in Unity as "Player".
         if(hitObject.tag == "Player")
         {
-            if (Good)
+            switch (gameObject.tag)
             {
-                playerScript.Collide(points, boost);
-            }
-            else
-            {
-                playerScript.Collide(0, -damage);
+                case "Enemy":
+                    playerScript.Collide(0, -damage);
+                    break;
+                case "Boost":
+                    playerScript.Collide(points, boost);
+                    break;
+                case "Power_Freeze":
+                    playerScript.Collide(points, boost);
+                    playerScript.Freeze();
+                    break;
             }
 
             Instantiate(explosion, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }else if (hitObject.tag == "Ground")
         {
-            if (Good)
+
+            switch (gameObject.tag)
             {
-                playerScript.Collide(0, 0);
+                case "Enemy":
+                    playerScript.Collide(points, 0);
+                    break;
+                case "Boost":
+                    playerScript.Collide(0, 0);
+                    break;
+                case "Power_Freeze":
+                    playerScript.Collide(points, 0);
+                    break;
             }
-            else
-            {
-                playerScript.Collide(points, 0);
-            }
+
             Instantiate(explosion, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }else if (hitObject.tag == "Wall")

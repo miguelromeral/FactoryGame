@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Ground
   - Wall
+  - Boost
+  - Enemy
+  - Power_Freeze
   layers:
   - Default
   - TransparentFX

@@ -1255,6 +1255,83 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 423928f4856b6e14eb471ca0698459a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1067119399
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1067119400}
+  - component: {fileID: 1067119402}
+  - component: {fileID: 1067119401}
+  m_Layer: 5
+  m_Name: Text_PenaltyTime
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1067119400
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1067119399}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1950572782}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -35, y: -121}
+  m_SizeDelta: {x: 400, y: 80}
+  m_Pivot: {x: 1, y: 1}
+--- !u!114 &1067119401
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1067119399}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 35
+    m_FontStyle: 1
+    m_BestFit: 0
+    m_MinSize: 3
+    m_MaxSize: 40
+    m_Alignment: 5
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: Penalty
+--- !u!222 &1067119402
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1067119399}
+  m_CullTransparentMesh: 0
 --- !u!1 &1237998592
 GameObject:
   m_ObjectHideFlags: 0
@@ -1592,6 +1669,8 @@ MonoBehaviour:
   - {fileID: 6648138120044258621, guid: 06252ee6c05ab7649a13d2c61748f832, type: 3}
   boosters:
   - {fileID: 7902094801627083112, guid: ea5907a76ad3d7b419ebca5ac30b68cd, type: 3}
+  powers:
+  - {fileID: 6118806281566243322, guid: ebb2c789cb0cc444e8803768359482b8, type: 3}
   minTimeBetweenSpawns: 0.5
   maxTimeBetweenSpawns: 3
   FixedMaxTime: 1
@@ -1600,6 +1679,8 @@ MonoBehaviour:
   maxTimeBetweenBoosters: 5
   FixedMinTimeBooster: 50
   increase: 1
+  minTimeBetweenPowers: 10
+  maxTimeBetweenPowers: 20
   player: {fileID: 1586142962}
 --- !u!4 &1555986081
 Transform:
@@ -1833,6 +1914,9 @@ MonoBehaviour:
   MaxLife: 60
   MaxBarSize: 0.8
   Strength: 60
+  PenaltyTime: 0
+  DefaultPenalty: 5
+  IsFrozen: 0
 --- !u!4 &1586142965
 Transform:
   m_ObjectHideFlags: 0
@@ -2472,7 +2556,7 @@ GameObject:
   - component: {fileID: 1950572780}
   - component: {fileID: 1950572779}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: HUD
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2553,6 +2637,7 @@ RectTransform:
   - {fileID: 1754961363}
   - {fileID: 606930817}
   - {fileID: 1556047900}
+  - {fileID: 1067119400}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

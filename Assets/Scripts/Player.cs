@@ -8,6 +8,7 @@ public class Player : MonoBehaviour
     public float speed = 10;
     public Text lifeText;
     public Text pointsText;
+    public Text penaltyText;
     public GameObject losePanel;
     public Image lifeImage;
 
@@ -26,6 +27,11 @@ public class Player : MonoBehaviour
 
     public float Strength;
 
+    public float PenaltyTime = 0f;
+    public float DefaultPenalty = 5f;
+
+    public bool IsFrozen;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -33,6 +39,7 @@ public class Player : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         lifeText.text = Health.ToString();
         UpdatePoints();
+        penaltyText.text = "0";
     }
     
     private void UpdateLifeBar()
@@ -57,6 +64,13 @@ public class Player : MonoBehaviour
         }
     }
 
+    public void Freeze()
+    {
+        IsFrozen = true;
+        PenaltyTime = DefaultPenalty;
+        penaltyText.text = PenaltyTime.ToString();
+    }
+
     private void UpdatePoints()
     {
         pointsText.text = Points.ToString();
@@ -79,7 +93,23 @@ public class Player : MonoBehaviour
             }
             Destroy(gameObject);
         }
+        if(PenaltyTime > 0f)
+        {
+            PenaltyTime -= Time.deltaTime;
+            penaltyText.text = PenaltyTime.ToString("#.#", System.Globalization.CultureInfo.InvariantCulture);
+        }
+        else
+        {
+            if (IsFrozen)
+            {
+                IsFrozen = false;
+                penaltyText.text = "0";
+            }
+        }
+
     }
+    
+
 
     private void SetStrength(float addition)
     {

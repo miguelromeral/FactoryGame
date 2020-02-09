@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1730922134702776359}
   m_Layer: 0
   m_Name: hazard
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -98,6 +98,9 @@ MonoBehaviour:
   damage: 1
   points: 10
   boost: -1
+  Good: 0
+  MinAngle: 0
+  MaxAngle: 0
   explosion: {fileID: 4504986859610226387, guid: f28220b0a5e49394281b2f4450f0f09b,
     type: 3}
 --- !u!61 &1730922134702776359

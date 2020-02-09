@@ -28,7 +28,7 @@ public class Movement : MonoBehaviour
             //Debug.Log("PX: " + px.x);
 
 
-            if (Input.touchCount > 0)
+            if (Input.touchCount > 0 && !playerScript.IsFrozen)
             {
                 if (Input.GetTouch(0).position.x > ScreenWidth / 2)
                 {

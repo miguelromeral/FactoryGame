@@ -7,19 +7,23 @@ public class Spawner : MonoBehaviour
     public Transform[] spawnPoints;
     public GameObject[] hazards;
     public GameObject[] boosters;
+    public GameObject[] powers;
 
     private float timeBtwSpawns = 0;
     public float minTimeBetweenSpawns;
     public float maxTimeBetweenSpawns;
     public float FixedMaxTime;
     public float decrease;
-
-
+    
     private float timeBtwBoosters = 0;
     public float minTimeBetweenBoosters;
     public float maxTimeBetweenBoosters;
     public float FixedMinTimeBooster;
     public float increase;
+    
+    private float timeBtwPowers = 0;
+    public float minTimeBetweenPowers;
+    public float maxTimeBetweenPowers;
 
     public GameObject player;
 
@@ -28,7 +32,7 @@ public class Spawner : MonoBehaviour
     {
         if (player != null)
         {
-            
+            /*
             if (timeBtwSpawns <= 0)
             {
                 Transform randomSpawnPoint = spawnPoints[Random.Range(0, spawnPoints.Length)];
@@ -76,6 +80,29 @@ public class Spawner : MonoBehaviour
             else
             {
                 timeBtwBoosters -= Time.deltaTime;
+            }*/
+
+
+
+            if (timeBtwPowers <= 0)
+            {
+                Transform randomSpawnPoint = spawnPoints[Random.Range(0, spawnPoints.Length)];
+                GameObject randomHazard = powers[Random.Range(0, powers.Length)];
+                Spawn r = randomSpawnPoint.GetComponentInChildren(typeof(Spawn)) as Spawn;
+
+
+                float randomAngle = Random.Range(360 - r.MinAngle, 360 + r.MaxAngle) - 360;
+                //Debug.Log("Random Angle: " + randomAngle);
+                Instantiate(randomHazard, randomSpawnPoint.position, Quaternion.Euler(0, 0, randomAngle));
+                //Instantiate(randomHazard, randomSpawnPoint.position, Quaternion.Euler(0, 0, 0));
+                
+
+                timeBtwPowers = Random.Range(minTimeBetweenPowers, maxTimeBetweenPowers);
+                //Debug.Log("New Time Btw " + Powers[0].ToString() + " (" + minTimeBetweenPowers + "-" + maxTimeBetweenPowers + "): " + timeBtwPowers);
+            }
+            else
+            {
+                timeBtwPowers -= Time.deltaTime;
             }
         }
     }
