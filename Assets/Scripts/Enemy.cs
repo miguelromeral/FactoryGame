@@ -9,10 +9,7 @@ public class Enemy : MonoBehaviour
     public int damage;
     public int points;
     public int boost;
-
-    public float MinAngle;
-    public float MaxAngle;
-
+    
     float speed;
     private float DefaultSpeed;
     private float SlowSpeed = 4f;
@@ -73,7 +70,10 @@ public class Enemy : MonoBehaviour
             switch (gameObject.tag)
             {
                 case "Enemy":
-                    playerScript.Collide(0, -damage);
+                    if (!playerScript.IsProtected)
+                    {
+                        playerScript.Collide(0, -damage);
+                    }
                     break;
                 case "Boost":
                     playerScript.Collide(points, boost);
@@ -90,6 +90,10 @@ public class Enemy : MonoBehaviour
                     playerScript.Collide(points, boost);
                     playerScript.SlowEverything();
                     break;
+                case "Power_Shield":
+                    playerScript.Collide(points, boost);
+                    playerScript.Protect();
+                    break;
             }
 
             Instantiate(explosion, transform.position, Quaternion.identity);
@@ -102,12 +106,8 @@ public class Enemy : MonoBehaviour
                 case "Enemy":
                     playerScript.Collide(points, 0);
                     break;
-                case "Boost":
+                default:
                     playerScript.Collide(0, 0);
-                    break;
-                case "Power_Freeze":
-                case "Power_Fast":
-                    playerScript.Collide(points, 0);
                     break;
             }
 

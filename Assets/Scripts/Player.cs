@@ -10,6 +10,7 @@ public class Player : MonoBehaviour
     public Text lifeText;
     public Text pointsText;
     public Text penaltyText;
+    public Text totalTimeText;
     public GameObject losePanel;
     public Image lifeImage;
 
@@ -26,6 +27,8 @@ public class Player : MonoBehaviour
     static public int Health;
     static public int Points = 0;
 
+    static public float totalTime = 0;
+
     public float Strength;
 
     public float PenaltyTime = 0f;
@@ -36,6 +39,14 @@ public class Player : MonoBehaviour
     public float FasterSpeed = 20;
 
     public bool IsSlowed;
+    public bool IsProtected;
+
+    public static void InitPlayer()
+    {
+        Health = 3;
+        Points = 0;
+        totalTime = 0f;
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -100,6 +111,14 @@ public class Player : MonoBehaviour
         penaltyText.gameObject.SetActive(true);
     }
 
+    public void Protect()
+    {
+        IsProtected = true;
+        PenaltyTime = DefaultPenalty;
+        penaltyText.text = PenaltyTime.ToString();
+        penaltyText.gameObject.SetActive(true);
+    }
+
 
     private void UpdatePoints()
     {
@@ -108,6 +127,7 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
+        totalTime += Time.deltaTime;
         if (Strength > 0f)
         {
             Strength -= Time.deltaTime;
@@ -116,13 +136,17 @@ public class Player : MonoBehaviour
         //pointsText.text = Strength.ToString();
         if(Strength <= 0f)
         {
+            Strength = 0f;
+            UpdateLifeBar();
             losePanel.SetActive(true);
-            if(Health <= 0)
+            totalTimeText.text = "Total Time: "+ totalTime.ToString("#.#", System.Globalization.CultureInfo.InvariantCulture) + " s.";
+            if (Health <= 0)
             {
                 GameObject.Find("Start_Text").SetActive(false);
             }
             Destroy(gameObject);
         }
+
         if(PenaltyTime > 0f)
         {
             PenaltyTime -= Time.deltaTime;
@@ -130,11 +154,12 @@ public class Player : MonoBehaviour
         }
         else
         {
-            if (IsFrozen || IsFaster || IsSlowed)
+            if (IsFrozen || IsFaster || IsSlowed || IsProtected)
             {
                 IsFrozen = false;
                 IsFaster = false;
                 IsSlowed = false;
+                IsProtected = false;
                 speed = DefaultSpeed;
                 penaltyText.gameObject.SetActive(false);
             }

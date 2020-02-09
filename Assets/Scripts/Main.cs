@@ -9,8 +9,7 @@ public class Main : MonoBehaviour
     public void InitGame()
     {
         SceneManager.LoadScene("Game");
-        Player.Health = 3;
-        Player.Points = 0;
+        Player.InitPlayer();
     }
 
     public void StartGame()
