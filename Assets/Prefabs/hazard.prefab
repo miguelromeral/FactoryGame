@@ -96,9 +96,8 @@ MonoBehaviour:
   minSpeed: 1
   maxSpeed: 6
   damage: 1
-  points: 10
+  points: 50
   boost: -1
-  Good: 0
   MinAngle: 0
   MaxAngle: 0
   explosion: {fileID: 4504986859610226387, guid: f28220b0a5e49394281b2f4450f0f09b,

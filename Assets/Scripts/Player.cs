@@ -45,7 +45,7 @@ public class Player : MonoBehaviour
         lifeText.text = Health.ToString();
         UpdatePoints();
         speed = DefaultSpeed;
-        penaltyText.text = "0";
+        penaltyText.gameObject.SetActive(false);
     }
     
     private void UpdateLifeBar()
@@ -97,6 +97,7 @@ public class Player : MonoBehaviour
         IsSlowed = true;
         PenaltyTime = DefaultPenalty;
         penaltyText.text = PenaltyTime.ToString();
+        penaltyText.gameObject.SetActive(true);
     }
 
 
@@ -135,7 +136,7 @@ public class Player : MonoBehaviour
                 IsFaster = false;
                 IsSlowed = false;
                 speed = DefaultSpeed;
-                penaltyText.text = "0";
+                penaltyText.gameObject.SetActive(false);
             }
         }
 
