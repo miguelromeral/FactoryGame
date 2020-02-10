@@ -36,10 +36,14 @@ public class Player : MonoBehaviour
 
     public bool IsFrozen;
     public bool IsFaster;
-    public float FasterSpeed = 20;
+    public float FasterSpeed = 20f;
+    public float DashSpeed = 30f;
 
     public bool IsSlowed;
     public bool IsProtected;
+
+
+    public GameObject dashMove;
 
     public static void InitPlayer()
     {
@@ -104,6 +108,15 @@ public class Player : MonoBehaviour
         penaltyText.gameObject.SetActive(true);
     }
 
+    public void QuickRunBegin()
+    {
+        speed = DashSpeed;
+        Instantiate(dashMove, transform.position, Quaternion.identity);
+    }
+    public void QuickRunEnd()
+    {
+        speed = DefaultSpeed;
+    }
 
     public void SlowEverything()
     {
