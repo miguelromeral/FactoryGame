@@ -11,8 +11,10 @@ public class Player : MonoBehaviour
     public Text pointsText;
     public Text penaltyText;
     public Text totalTimeText;
+    public Text remainText;
     public GameObject losePanel;
     public Image lifeImage;
+    public GameObject characterHelmet;
 
     public float MaxLife = 100;
 
@@ -29,7 +31,7 @@ public class Player : MonoBehaviour
 
     static public float totalTime = 0;
 
-    public float Strength;
+    private float Strength;
 
     public float PenaltyTime = 0f;
     public float DefaultPenalty = 5f;
@@ -42,6 +44,10 @@ public class Player : MonoBehaviour
     public bool IsSlowed;
     public bool IsProtected;
 
+    public Image timeImage;
+    public Image coffeeImage;
+    public Image freezeImage;
+    public Image helmetImage;
 
     public GameObject dashMove;
 
@@ -60,6 +66,7 @@ public class Player : MonoBehaviour
         lifeText.text = Health.ToString();
         UpdatePoints();
         speed = DefaultSpeed;
+        Strength = MaxLife;
         penaltyText.gameObject.SetActive(false);
     }
     
@@ -97,6 +104,7 @@ public class Player : MonoBehaviour
         PenaltyTime = DefaultPenalty;
         penaltyText.text = PenaltyTime.ToString();
         penaltyText.gameObject.SetActive(true);
+        freezeImage.gameObject.SetActive(true);
     }
 
     public void Faster()
@@ -106,6 +114,7 @@ public class Player : MonoBehaviour
         PenaltyTime = DefaultPenalty;
         penaltyText.text = PenaltyTime.ToString();
         penaltyText.gameObject.SetActive(true);
+        coffeeImage.gameObject.SetActive(true);
     }
 
     public void QuickRunBegin()
@@ -115,7 +124,13 @@ public class Player : MonoBehaviour
     }
     public void QuickRunEnd()
     {
-        speed = DefaultSpeed;
+        if (IsFaster)
+        {
+            speed = FasterSpeed;
+        }
+        else {
+            speed = DefaultSpeed;
+        }
     }
 
     public void SlowEverything()
@@ -124,6 +139,7 @@ public class Player : MonoBehaviour
         PenaltyTime = DefaultPenalty;
         penaltyText.text = PenaltyTime.ToString();
         penaltyText.gameObject.SetActive(true);
+        timeImage.gameObject.SetActive(true);
     }
 
     public void Protect()
@@ -132,6 +148,8 @@ public class Player : MonoBehaviour
         PenaltyTime = DefaultPenalty;
         penaltyText.text = PenaltyTime.ToString();
         penaltyText.gameObject.SetActive(true);
+        helmetImage.gameObject.SetActive(true);
+        characterHelmet.SetActive(true);
     }
 
 
@@ -172,14 +190,20 @@ public class Player : MonoBehaviour
             if (IsFrozen || IsFaster || IsSlowed || IsProtected)
             {
                 IsFrozen = false;
+                freezeImage.gameObject.SetActive(false);
                 IsFaster = false;
+                coffeeImage.gameObject.SetActive(false);
                 IsSlowed = false;
+                timeImage.gameObject.SetActive(false);
                 IsProtected = false;
+                helmetImage.gameObject.SetActive(false);
+                characterHelmet.SetActive(false);
                 speed = DefaultSpeed;
                 penaltyText.gameObject.SetActive(false);
             }
         }
 
+        remainText.text = ((int) Strength).ToString();
     }
     
 

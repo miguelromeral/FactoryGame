@@ -20,6 +20,7 @@ public class Movement : MonoBehaviour
     public float DefaultTimeBetweetnDoubleTaps = 2f;
     public float timeBetweenDoubleTaps = 0f;
 
+
     void Start()
     {
         playerScript = GameObject.FindWithTag("Player").GetComponent<Player>();
@@ -108,7 +109,7 @@ public class Movement : MonoBehaviour
         }
         else
         {
-            dashText.text = "Boost!";
+            dashText.text = "Corre!";
         }
     }
 

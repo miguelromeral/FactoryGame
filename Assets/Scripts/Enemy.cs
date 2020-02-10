@@ -74,6 +74,10 @@ public class Enemy : MonoBehaviour
                     {
                         playerScript.Collide(0, -damage);
                     }
+                    else
+                    {
+                        playerScript.Collide(points, 0);
+                    }
                     break;
                 case "Boost":
                     playerScript.Collide(points, boost);
