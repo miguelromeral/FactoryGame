@@ -15,6 +15,7 @@ public class Player : MonoBehaviour
     public GameObject losePanel;
     public Image lifeImage;
     public GameObject characterHelmet;
+    public GameObject characterCoffee;
 
     public float MaxLife = 100;
 
@@ -51,6 +52,12 @@ public class Player : MonoBehaviour
 
     public GameObject dashMove;
 
+    private int count_boosts = 0;
+    private int count_powers = 0;
+    private int count_hit = 0;
+
+    private SpriteRenderer[] bodySprites;
+
     public static void InitPlayer()
     {
         Health = 3;
@@ -68,6 +75,7 @@ public class Player : MonoBehaviour
         speed = DefaultSpeed;
         Strength = MaxLife;
         penaltyText.gameObject.SetActive(false);
+        bodySprites = gameObject.GetComponentsInChildren<SpriteRenderer>();
     }
     
     private void UpdateLifeBar()
@@ -100,21 +108,25 @@ public class Player : MonoBehaviour
 
     public void Freeze()
     {
+        count_powers++;
         IsFrozen = true;
         PenaltyTime = DefaultPenalty;
         penaltyText.text = PenaltyTime.ToString();
         penaltyText.gameObject.SetActive(true);
         freezeImage.gameObject.SetActive(true);
+        PaintBody(true);
     }
 
     public void Faster()
     {
+        count_powers++;
         IsFaster = true;
         speed = FasterSpeed;
         PenaltyTime = DefaultPenalty;
         penaltyText.text = PenaltyTime.ToString();
         penaltyText.gameObject.SetActive(true);
         coffeeImage.gameObject.SetActive(true);
+        characterCoffee.SetActive(true);
     }
 
     public void QuickRunBegin()
@@ -135,6 +147,7 @@ public class Player : MonoBehaviour
 
     public void SlowEverything()
     {
+        count_powers++;
         IsSlowed = true;
         PenaltyTime = DefaultPenalty;
         penaltyText.text = PenaltyTime.ToString();
@@ -144,6 +157,7 @@ public class Player : MonoBehaviour
 
     public void Protect()
     {
+        count_powers++;
         IsProtected = true;
         PenaltyTime = DefaultPenalty;
         penaltyText.text = PenaltyTime.ToString();
@@ -156,6 +170,22 @@ public class Player : MonoBehaviour
     private void UpdatePoints()
     {
         pointsText.text = Points.ToString();
+    }
+
+    private void PaintBody(bool freeze = false)
+    {
+
+        foreach (SpriteRenderer s in bodySprites)
+        {
+            if (freeze)
+            {
+                s.color = new Color(0.33f, 0.67f, 255f, 1f);
+            }
+            else
+            {
+                s.color = new Color(1f, 1, 1f, 1f);
+            }
+        }
     }
 
     private void Update()
@@ -172,11 +202,12 @@ public class Player : MonoBehaviour
             Strength = 0f;
             UpdateLifeBar();
             losePanel.SetActive(true);
-            totalTimeText.text = "Total Time: "+ totalTime.ToString("#.#", System.Globalization.CultureInfo.InvariantCulture) + " s.";
+            totalTimeText.text = "Tiempo Total: "+ totalTime.ToString("#.#", System.Globalization.CultureInfo.InvariantCulture) + " s.";
             if (Health <= 0)
             {
                 GameObject.Find("Start_Text").SetActive(false);
             }
+            Debug.Log("Stats{ Hits: " + count_hit + " | Boosts: " + count_boosts + " | Powers: " + count_powers + "}");
             Destroy(gameObject);
         }
 
@@ -191,8 +222,10 @@ public class Player : MonoBehaviour
             {
                 IsFrozen = false;
                 freezeImage.gameObject.SetActive(false);
+                PaintBody();
                 IsFaster = false;
                 coffeeImage.gameObject.SetActive(false);
+                characterCoffee.SetActive(false);
                 IsSlowed = false;
                 timeImage.gameObject.SetActive(false);
                 IsProtected = false;
@@ -224,6 +257,15 @@ public class Player : MonoBehaviour
     public void Collide(int points, float boost)
     {
         SetStrength(boost);
+        if(boost > 0f)
+        {
+            count_boosts++;
+        }
+        else if(boost < 0f)
+        {
+            count_hit++;
+        }
+
         if(Strength > 0f)
         {
             Points += points;
