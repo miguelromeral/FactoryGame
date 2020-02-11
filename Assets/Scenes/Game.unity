@@ -203,7 +203,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Backgrounds:
   - {fileID: 1080819404551078236, guid: 2f4e3bad7aff5f24994ad0f3fd59b78c, type: 3}
-  - {fileID: 1080819404551078236, guid: 2f4e3bad7aff5f24994ad0f3fd59b78c, type: 3}
+  - {fileID: 5003273723954939479, guid: bcd17140d6431a14ea0cf42e08d132e2, type: 3}
   Background: {fileID: 765149178}
 --- !u!1 &106875239
 GameObject:
@@ -2904,7 +2904,6 @@ MonoBehaviour:
   DefaultSpeed: 10
   lifeText: {fileID: 1754961364}
   pointsText: {fileID: 606930818}
-  penaltyText: {fileID: 0}
   totalTimeText: {fileID: 165080000}
   remainText: {fileID: 496533337}
   losePanel: {fileID: 1758772732}
