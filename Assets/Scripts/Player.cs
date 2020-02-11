@@ -135,7 +135,7 @@ public class Player : MonoBehaviour
     public void QuickRunBegin()
     {
         speed = DashSpeed;
-        Instantiate(dashMove, transform.position, Quaternion.identity);
+        //Instantiate(dashMove, transform.position, Quaternion.identity);
     }
     public void QuickRunEnd()
     {

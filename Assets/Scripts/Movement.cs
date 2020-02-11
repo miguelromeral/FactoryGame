@@ -8,7 +8,6 @@ public class Movement : MonoBehaviour
     public GameObject character;
 
     private Player playerScript;
-    public Text dashText;
 
     private Rigidbody2D characterBody;
     private float ScreenWidth;
@@ -17,15 +16,21 @@ public class Movement : MonoBehaviour
     public float timeSinceLastTap = 0;
     public int lastDirection = 0; // -1 = L | 1 = R
 
-    public float DefaultTimeBetweetnDoubleTaps = 2f;
+    public static float DefaultTimeBetweetnDoubleTaps = 5f;
     public float timeBetweenDoubleTaps = 0f;
 
+
+    public Image dashImage;
+    public Image dashImageBack;
+    
 
     void Start()
     {
         playerScript = GameObject.FindWithTag("Player").GetComponent<Player>();
         ScreenWidth = Screen.width;
         characterBody = character.GetComponent<Rigidbody2D>();
+
+        dashImageBack.transform.localScale = new Vector2(1f, dashImageBack.transform.localScale.y);
     }
     
     void Update()
@@ -107,15 +112,23 @@ public class Movement : MonoBehaviour
         {
             lastDirection = 0;
         }
-
-        if(timeBetweenDoubleTaps > 0f)
+        
+        if (timeBetweenDoubleTaps > 0f)
         {
             timeBetweenDoubleTaps -= Time.deltaTime;
-            dashText.text = timeBetweenDoubleTaps.ToString("#.#", System.Globalization.CultureInfo.InvariantCulture) + "s";
+            
+            dashImage.transform.localScale = new Vector2(timeBetweenDoubleTaps / DefaultTimeBetweetnDoubleTaps, dashImage.transform.localScale.y);
+            
+            dashImage.color = new Color(1f, 0f, 0f);
         }
         else
         {
-            dashText.text = "Corre!";
+            dashImage.transform.localScale = new Vector2(
+                (timeBetweenDoubleTaps > 0f ? 0f : 1f)
+                , dashImage.transform.localScale.y);
+
+
+            dashImage.color = new Color(0f, 1f, 0f);
         }
     }
 
