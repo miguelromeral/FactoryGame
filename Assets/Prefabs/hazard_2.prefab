@@ -98,7 +98,7 @@ MonoBehaviour:
   damage: 5
   points: 150
   boost: -5
-  explosion: {fileID: 4504986859610226387, guid: f28220b0a5e49394281b2f4450f0f09b,
+  explosion: {fileID: 6563703958044879310, guid: 1bcb3a102dff64c48a34c2a605738b96,
     type: 3}
 --- !u!61 &6648138120044258622
 BoxCollider2D:

@@ -26,7 +26,7 @@ public class Player : MonoBehaviour
     
     private float input;
 
-    public float MaxBarSize = 65f;
+    public float MaxBarSize = 60f;
 
     static public int Health;
     static public int Points = 0;
@@ -78,13 +78,12 @@ public class Player : MonoBehaviour
         penaltyText.gameObject.SetActive(false);
         bodySprites = gameObject.GetComponentsInChildren<SpriteRenderer>();
         
-        lifeImageBack.transform.localScale =
-            new Vector2(MaxBarSize, lifeImageBack.transform.localScale.y);
+        lifeImageBack.transform.localScale = new Vector2(MaxBarSize, lifeImageBack.transform.localScale.y);
     }
     
     private void UpdateLifeBar()
     {
-        float newWidth = (Strength * 1f) / MaxLife;
+        float newWidth = Strength / MaxLife;
         lifeImage.transform.localScale = 
             new Vector2(newWidth, lifeImage.transform.localScale.y);
     }

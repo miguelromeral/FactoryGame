@@ -2486,6 +2486,96 @@ Transform:
   m_Father: {fileID: 1586142965}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1267052025
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1196135438863984620, guid: 9212597c611163643bc419853d860b0d,
+        type: 3}
+      propertyPath: InitialModule.startColor.minColor.r
+      value: 0.764151
+      objectReference: {fileID: 0}
+    - target: {fileID: 1196135438863984620, guid: 9212597c611163643bc419853d860b0d,
+        type: 3}
+      propertyPath: InitialModule.startColor.minColor.g
+      value: 0.34508502
+      objectReference: {fileID: 0}
+    - target: {fileID: 1196135438863984620, guid: 9212597c611163643bc419853d860b0d,
+        type: 3}
+      propertyPath: InitialModule.startColor.minColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1196135438863984620, guid: 9212597c611163643bc419853d860b0d,
+        type: 3}
+      propertyPath: UVModule.sprites.Array.data[0].sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: a466cc55c244d6b4d847fc3661b8bc0a,
+        type: 3}
+    - target: {fileID: 1196135438863984621, guid: 9212597c611163643bc419853d860b0d,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.044726834
+      objectReference: {fileID: 0}
+    - target: {fileID: 1196135438863984621, guid: 9212597c611163643bc419853d860b0d,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.13441864
+      objectReference: {fileID: 0}
+    - target: {fileID: 1196135438863984621, guid: 9212597c611163643bc419853d860b0d,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.23338464
+      objectReference: {fileID: 0}
+    - target: {fileID: 1196135438863984621, guid: 9212597c611163643bc419853d860b0d,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 1196135438863984621, guid: 9212597c611163643bc419853d860b0d,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1196135438863984621, guid: 9212597c611163643bc419853d860b0d,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1196135438863984621, guid: 9212597c611163643bc419853d860b0d,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 1196135438863984621, guid: 9212597c611163643bc419853d860b0d,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 1196135438863984621, guid: 9212597c611163643bc419853d860b0d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 1196135438863984621, guid: 9212597c611163643bc419853d860b0d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1196135438863984621, guid: 9212597c611163643bc419853d860b0d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1196135438863984622, guid: 9212597c611163643bc419853d860b0d,
+        type: 3}
+      propertyPath: m_Name
+      value: Explosion_Razor
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 9212597c611163643bc419853d860b0d, type: 3}
 --- !u!1 &1419911674
 GameObject:
   m_ObjectHideFlags: 0
@@ -2913,11 +3003,11 @@ MonoBehaviour:
   remainText: {fileID: 496533337}
   losePanel: {fileID: 1758772732}
   lifeImage: {fileID: 1556047901}
-  lifeImageBack: {fileID: 0}
+  lifeImageBack: {fileID: 2123658646}
   characterHelmet: {fileID: 1044947607}
   characterCoffee: {fileID: 106875239}
   MaxLife: 61
-  MaxBarSize: 0.7
+  MaxBarSize: 0.65
   PenaltyTime: 0
   DefaultPenalty: 5
   IsFrozen: 0
