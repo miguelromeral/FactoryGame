@@ -9,12 +9,12 @@ public class Player : MonoBehaviour
     public float DefaultSpeed = 10;
     public Text lifeText;
     public Text pointsText;
-    public Text penaltyText;
     public Text totalTimeText;
     public Text remainText;
     public GameObject losePanel;
     public Image lifeImage;
     public Image lifeImageBack;
+    public Image powerImage;
     public GameObject characterHelmet;
     public GameObject characterCoffee;
 
@@ -75,7 +75,6 @@ public class Player : MonoBehaviour
         UpdatePoints();
         speed = DefaultSpeed;
         Strength = MaxLife;
-        penaltyText.gameObject.SetActive(false);
         bodySprites = gameObject.GetComponentsInChildren<SpriteRenderer>();
         
         lifeImageBack.transform.localScale = new Vector2(MaxBarSize, lifeImageBack.transform.localScale.y);
@@ -114,8 +113,6 @@ public class Player : MonoBehaviour
         count_powers++;
         IsFrozen = true;
         PenaltyTime = DefaultPenalty;
-        penaltyText.text = PenaltyTime.ToString();
-        penaltyText.gameObject.SetActive(true);
         freezeImage.gameObject.SetActive(true);
         PaintBody(true);
     }
@@ -126,8 +123,6 @@ public class Player : MonoBehaviour
         IsFaster = true;
         speed = FasterSpeed;
         PenaltyTime = DefaultPenalty;
-        penaltyText.text = PenaltyTime.ToString();
-        penaltyText.gameObject.SetActive(true);
         coffeeImage.gameObject.SetActive(true);
         characterCoffee.SetActive(true);
     }
@@ -153,8 +148,6 @@ public class Player : MonoBehaviour
         count_powers++;
         IsSlowed = true;
         PenaltyTime = DefaultPenalty;
-        penaltyText.text = PenaltyTime.ToString();
-        penaltyText.gameObject.SetActive(true);
         timeImage.gameObject.SetActive(true);
     }
 
@@ -163,8 +156,6 @@ public class Player : MonoBehaviour
         count_powers++;
         IsProtected = true;
         PenaltyTime = DefaultPenalty;
-        penaltyText.text = PenaltyTime.ToString();
-        penaltyText.gameObject.SetActive(true);
         helmetImage.gameObject.SetActive(true);
         characterHelmet.SetActive(true);
     }
@@ -220,7 +211,9 @@ public class Player : MonoBehaviour
         if(PenaltyTime > 0f)
         {
             PenaltyTime -= Time.deltaTime;
-            penaltyText.text = PenaltyTime.ToString("#.#", System.Globalization.CultureInfo.InvariantCulture);
+            
+            powerImage.gameObject.SetActive(true);
+            powerImage.transform.localScale = new Vector2(PenaltyTime / DefaultPenalty, powerImage.transform.localScale.y);
         }
         else
         {
@@ -238,7 +231,8 @@ public class Player : MonoBehaviour
                 helmetImage.gameObject.SetActive(false);
                 characterHelmet.SetActive(false);
                 speed = DefaultSpeed;
-                penaltyText.gameObject.SetActive(false);
+
+                powerImage.gameObject.SetActive(false);
             }
         }
 
