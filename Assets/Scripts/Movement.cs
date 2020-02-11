@@ -30,6 +30,12 @@ public class Movement : MonoBehaviour
     
     void Update()
     {
+        if (Pause.IsPaused)
+        {
+            RunCharacter(0f);
+            return;
+        }
+
         if (playerScript != null)
         {
             Vector3 px = Camera.main.WorldToScreenPoint(playerScript.transform.position);

@@ -33,6 +33,13 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        /*
+        if (!Pause.IsPaused)
+        {
+            return;
+
+        }
+        */
         if (gameObject.tag == "Enemy")
         {
             if (playerScript.IsSlowed)
@@ -44,11 +51,13 @@ public class Enemy : MonoBehaviour
         // Vector2.down ==> new Vector2(0, -1)
         transform.Translate(Vector2.down * speed * Time.deltaTime);
 
-        //transform.Rotate(0, 0, 5f);
-        //r.rotation = r.angularVelocity * speed * Time.deltaTime;
+            //transform.Rotate(0, 0, 5f);
+            //r.rotation = r.angularVelocity * speed * Time.deltaTime;
 
-        //r.velocity = new Vector2(r.velocity.x * speed * Time.deltaTime, 0f);
-        //r.velocity = new Vector2(0f, r.velocity.y * speed);
+            //r.velocity = new Vector2(r.velocity.x * speed * Time.deltaTime, 0f);
+            //r.velocity = new Vector2(0f, r.velocity.y * speed);
+        
+
     }
 
     void FixedUpdate()

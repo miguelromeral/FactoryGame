@@ -14,6 +14,7 @@ public class Player : MonoBehaviour
     public Text remainText;
     public GameObject losePanel;
     public Image lifeImage;
+    public Image lifeImageBack;
     public GameObject characterHelmet;
     public GameObject characterCoffee;
 
@@ -25,7 +26,7 @@ public class Player : MonoBehaviour
     
     private float input;
 
-    public float MaxBarSize = 80f;
+    public float MaxBarSize = 65f;
 
     static public int Health;
     static public int Points = 0;
@@ -76,11 +77,14 @@ public class Player : MonoBehaviour
         Strength = MaxLife;
         penaltyText.gameObject.SetActive(false);
         bodySprites = gameObject.GetComponentsInChildren<SpriteRenderer>();
+        
+        lifeImageBack.transform.localScale =
+            new Vector2(MaxBarSize, lifeImageBack.transform.localScale.y);
     }
     
     private void UpdateLifeBar()
     {
-        float newWidth = (Strength * MaxBarSize) / MaxLife;
+        float newWidth = (Strength * 1f) / MaxLife;
         lifeImage.transform.localScale = 
             new Vector2(newWidth, lifeImage.transform.localScale.y);
     }
@@ -190,6 +194,9 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
+        if (Pause.IsPaused) {
+            return;
+        }
         totalTime += Time.deltaTime;
         if (Strength > 0f)
         {
