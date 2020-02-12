@@ -20,6 +20,7 @@ public class Enemy : MonoBehaviour
     private float rotationSpeed;
 
     Player playerScript;
+    private AudioSource source;
 
     // Start is called before the first frame update
     void Start()
@@ -48,6 +49,8 @@ public class Enemy : MonoBehaviour
         }
 
         rotationSpeed = Random.RandomRange(10f, 50f);
+
+        source = GetComponent<AudioSource>();
     }
 
     void FixedUpdate()
@@ -158,6 +161,7 @@ public class Enemy : MonoBehaviour
             {
                 case "Enemy":
                     playerScript.Collide(points, 0);
+                    AudioSource.PlayClipAtPoint(GetComponent<RandomSound>().GetRandom(), transform.position);
                     break;
                 default:
                     playerScript.Collide(0, 0);

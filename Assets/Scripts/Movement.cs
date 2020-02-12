@@ -48,9 +48,6 @@ public class Movement : MonoBehaviour
 
             if (Input.touchCount > 0 && !playerScript.IsFrozen && Input.GetTouch(0).position.y <= Screen.height - (Screen.height / 5))
             {
-
-                Debug.Log("Pos: " + Input.GetTouch(0).position.y);
-
                 if (Input.GetTouch(0).position.x > ScreenWidth / 2)
                 {
                     if (lastDirection == 1 && Input.GetTouch(0).phase == TouchPhase.Began

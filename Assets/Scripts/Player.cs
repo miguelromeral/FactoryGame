@@ -61,6 +61,14 @@ public class Player : MonoBehaviour
 
     private SpriteRenderer[] bodySprites;
 
+
+    public Text textHits;
+    public Text textBoosts;
+    public Text textPowers;
+    public Text textPointsEnd;
+
+    private AudioSource source;
+
     public static void InitPlayer()
     {
         Health = 3;
@@ -72,6 +80,7 @@ public class Player : MonoBehaviour
     void Start()
     {
         anim = GetComponent<Animator>();
+        source = GetComponent<AudioSource>();
         rb = GetComponent<Rigidbody2D>();
         lifeText.text = Health.ToString();
         UpdatePoints();
@@ -93,6 +102,9 @@ public class Player : MonoBehaviour
     public void Running(float input)
     {
         anim.SetBool("isRunning", input != 0);
+        anim.SetBool("IsFaster", IsFaster);
+        Debug.Log("isRunning: " + (input != 0) + " | IsFaster: " + IsFaster);
+
         if (input > 0)
             transform.eulerAngles = new Vector3(0, 0, 0);
         else if (input < 0)
@@ -238,7 +250,12 @@ public class Player : MonoBehaviour
             {
                 GameObject.Find("Start_Text").SetActive(false);
             }
-            Debug.Log("Stats{ Hits: " + count_hit + " | Boosts: " + count_boosts + " | Powers: " + count_powers + "}");
+
+            textHits.text = "Golpes: " + count_hit.ToString();
+            textBoosts.text = "Vidas: " + count_boosts.ToString();
+            textPowers.text = "Poten.: " + count_powers.ToString();
+            textPointsEnd.text = "Puntos: " + Points.ToString();
+            
             Destroy(gameObject);
         }
 
@@ -301,6 +318,7 @@ public class Player : MonoBehaviour
         else if(boost < 0f)
         {
             count_hit++;
+            source.Play();
         }
 
         if(Strength > 0f)

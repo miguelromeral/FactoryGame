@@ -10,7 +10,6 @@ public class Spawner : MonoBehaviour
     public GameObject[] powers;
 
     private float timeBtwSpawns = 0;
-    public float minTimeBetweenSpawns;
     public float maxTimeBetweenSpawns;
     public float FixedMaxTime;
     public float decrease;
@@ -55,7 +54,7 @@ public class Spawner : MonoBehaviour
                     maxTimeBetweenSpawns -= decrease;
                 }
 
-                timeBtwSpawns = Random.Range(minTimeBetweenSpawns, maxTimeBetweenSpawns);
+                timeBtwSpawns = Random.Range(FixedMaxTime, maxTimeBetweenSpawns);
                 //Debug.Log("New Time Btw " + hazards[0].ToString() + " (" + minTimeBetweenSpawns + "-" + maxTimeBetweenSpawns + "): " + timeBtwSpawns);
             }
             else
