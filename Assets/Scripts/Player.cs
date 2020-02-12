@@ -45,11 +45,13 @@ public class Player : MonoBehaviour
 
     public bool IsSlowed;
     public bool IsProtected;
+    public bool IsHidden;
 
     public Image timeImage;
     public Image coffeeImage;
     public Image freezeImage;
     public Image helmetImage;
+    public Image hiddenImage;
 
     public GameObject dashMove;
 
@@ -117,6 +119,15 @@ public class Player : MonoBehaviour
         PaintBody(true);
     }
 
+    public void Hide()
+    {
+        count_powers++;
+        IsHidden = true;
+        PenaltyTime = DefaultPenalty;
+        hiddenImage.gameObject.SetActive(true);
+        HideBody(true);
+    }
+
     public void Faster()
     {
         count_powers++;
@@ -182,6 +193,26 @@ public class Player : MonoBehaviour
         }
     }
 
+
+    private void HideBody(bool hide = false)
+    {
+        foreach (SpriteRenderer s in bodySprites)
+        {
+            if (s.tag != "Shadow")
+            {
+                if (hide)
+                {
+                    s.color = new Color(1f, 1f, 1f, 0f);
+
+                }
+                else
+                {
+                    s.color = new Color(1f, 1, 1f, 1f);
+                }
+            }
+        }
+    }
+
     private void Update()
     {
         if (Pause.IsPaused) {
@@ -217,7 +248,7 @@ public class Player : MonoBehaviour
         }
         else
         {
-            if (IsFrozen || IsFaster || IsSlowed || IsProtected)
+            if (IsFrozen || IsFaster || IsSlowed || IsProtected || IsHidden)
             {
                 IsFrozen = false;
                 freezeImage.gameObject.SetActive(false);
@@ -231,6 +262,9 @@ public class Player : MonoBehaviour
                 helmetImage.gameObject.SetActive(false);
                 characterHelmet.SetActive(false);
                 speed = DefaultSpeed;
+                IsHidden = true;
+                HideBody();
+                hiddenImage.gameObject.SetActive(false);
 
                 powerImage.gameObject.SetActive(false);
             }

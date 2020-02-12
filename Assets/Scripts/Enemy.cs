@@ -107,6 +107,10 @@ public class Enemy : MonoBehaviour
                     playerScript.Collide(points, boost);
                     playerScript.Protect();
                     break;
+                case "Power_Hide":
+                    playerScript.Collide(points, boost);
+                    playerScript.Hide();
+                    break;
             }
 
             Instantiate(explosion, transform.position, Quaternion.identity);

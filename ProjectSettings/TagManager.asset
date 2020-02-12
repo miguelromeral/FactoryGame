@@ -12,6 +12,8 @@ TagManager:
   - Power_Fast
   - Power_Slow
   - Power_Shield
+  - Power_Hide
+  - Shadow
   layers:
   - Default
   - TransparentFX
