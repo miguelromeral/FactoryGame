@@ -10,6 +10,15 @@ public class Main : MonoBehaviour
     {
         SceneManager.LoadScene("Game");
         Player.InitPlayer();
+        /*
+        var p = Pause.instance;
+        Debug.Log("Starting game");
+        if (p != null)
+        {
+            p.IsPaused = false;
+
+            Debug.Log("Auto pause false");
+        }*/
     }
 
     public void StartGame()
@@ -21,5 +30,6 @@ public class Main : MonoBehaviour
     public void ExitGame()
     {
         SceneManager.LoadScene("Main");
+        Pause.instance = null;
     }
 }

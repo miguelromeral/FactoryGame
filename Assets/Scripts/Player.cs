@@ -216,10 +216,11 @@ public class Player : MonoBehaviour
     
     private void Update()
     {
-
-        if (Pause.IsPaused) {
+        if (Pause.instance != null && Pause.instance.IsPaused)
+        {
             return;
         }
+
         totalTime += Time.deltaTime;
         if (Strength > 0f)
         {

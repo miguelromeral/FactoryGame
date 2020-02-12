@@ -35,7 +35,8 @@ public class Movement : MonoBehaviour
     
     void Update()
     {
-        if (Pause.IsPaused)
+        //Debug.Log("Pause: " + Pause.instance.IsPaused);
+        if (Pause.instance != null && Pause.instance.IsPaused)
         {
             RunCharacter(0f);
             return;

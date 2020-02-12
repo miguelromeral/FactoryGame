@@ -22,5 +22,6 @@ public class BackgroundManager : MonoBehaviour
                     new Color(0.19f, 0.19f, 0.19f, 1f)
                 };
         Camera.backgroundColor = colors[Random.Range(0, colors.Length)];
+        Debug.Log("Random Color!");
     }
 }

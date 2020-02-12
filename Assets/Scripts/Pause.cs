@@ -7,30 +7,36 @@ public class Pause : MonoBehaviour
 {
     public GameObject panel;
 
-    static public bool IsPaused;
+    public bool IsPaused;
+
+    public static Pause instance;
 
     void Start()
     {
-        IsPaused = false;    
+        IsPaused = false;
+        if (instance == null)
+        {
+            instance = this;
+            //DontDestroyOnLoad(instance);
+        }
+        /*else
+        {
+            Destroy(gameObject);
+        }*/
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    
 
     public void EnterPause()
     {
-        //panel.gameObject.SetActive(true);
-        //IsPaused = true;
+        IsPaused = true;
+        panel.gameObject.SetActive(true);
         Debug.Log("PAUSE!!");
     }
 
     public void ExitPause()
     {
-        //IsPaused = false;
-        //panel.gameObject.SetActive(false);
+        panel.gameObject.SetActive(false);
+        IsPaused = false;
         Debug.Log("EXIT PAUSE!!");
     }
 }

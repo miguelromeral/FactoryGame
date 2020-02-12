@@ -18,7 +18,6 @@ public class Enemy : MonoBehaviour
    
 
     Player playerScript;
-    Rigidbody2D r;
 
     // Start is called before the first frame update
     void Start()
@@ -27,19 +26,16 @@ public class Enemy : MonoBehaviour
         speed = DefaultSpeed;
         // We get the player given its tag.
         playerScript = GameObject.FindWithTag("Player").GetComponent<Player>();
-        r = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        /*
-        if (!Pause.IsPaused)
+        if (Pause.instance != null && Pause.instance.IsPaused)
         {
             return;
-
         }
-        */
+
         if (gameObject.tag == "Enemy")
         {
             if (playerScript.IsSlowed)

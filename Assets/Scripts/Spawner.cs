@@ -30,10 +30,10 @@ public class Spawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        /*if (Pause.IsPaused)
+        if (Pause.instance != null && Pause.instance.IsPaused)
         {
             return;
-        }*/
+        }
 
         if (player != null)
         {
