@@ -29,7 +29,24 @@ public class Enemy : MonoBehaviour
         // We get the player given its tag.
         playerScript = GameObject.FindWithTag("Player").GetComponent<Player>();
 
-        randomXdirection = Random.RandomRange(-1f, 1f);
+
+        // - half = -1
+        // 0 = 0
+        // half = 2
+        float tempX = transform.position.x / 2;
+        if(tempX > 0)
+        {
+            var limit = (tempX / 2) / 10f;
+            randomXdirection = Random.RandomRange(-1f, limit);
+            Debug.Log("Position "+transform.position.x+" | Limit (-1, "+limit+")");
+        }
+        else
+        {
+            var limit = ((tempX / 2) / 10f);
+            randomXdirection = Random.RandomRange(limit, 1f);
+            Debug.Log("Position " + transform.position.x + " | Limit (" + limit + ",1)");
+        }
+
         rotationSpeed = Random.RandomRange(10f, 50f);
     }
 
