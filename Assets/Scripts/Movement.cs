@@ -52,7 +52,6 @@ public class Movement : MonoBehaviour
                     if(lastDirection == 1 && Input.GetTouch(0).phase == TouchPhase.Began
                         && timeSinceLastTap > 0f && timeBetweenDoubleTaps <= 0f)
                     {
-                        Debug.Log("Double Click Right!");
                         timeBetweenDoubleTaps = DefaultTimeBetweetnDoubleTaps;
                         timeSinceLastTap = 0f;
 
@@ -76,7 +75,6 @@ public class Movement : MonoBehaviour
                     if (lastDirection == -1 && Input.GetTouch(0).phase == TouchPhase.Began
                         && timeSinceLastTap > 0f && timeBetweenDoubleTaps <= 0f)
                     {
-                        Debug.Log("Double Click Left!");
                         timeBetweenDoubleTaps = DefaultTimeBetweetnDoubleTaps;
                         timeSinceLastTap = 0f;
 

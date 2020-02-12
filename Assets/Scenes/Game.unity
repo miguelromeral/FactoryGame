@@ -205,6 +205,7 @@ MonoBehaviour:
   - {fileID: 1080819404551078236, guid: 2f4e3bad7aff5f24994ad0f3fd59b78c, type: 3}
   - {fileID: 5003273723954939479, guid: bcd17140d6431a14ea0cf42e08d132e2, type: 3}
   Background: {fileID: 765149178}
+  Camera: {fileID: 519420031}
 --- !u!1 &106875239
 GameObject:
   m_ObjectHideFlags: 0
@@ -527,7 +528,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -171.19904, y: -118.744995}
+  m_AnchoredPosition: {x: -171.19922, y: -118.744995}
   m_SizeDelta: {x: 156.7, y: 156.7}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &155811420
@@ -1202,7 +1203,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0, g: 0.7445347, b: 0.9528302, a: 0}
+  m_BackGroundColor: {r: 1, g: 1, b: 1, a: 0}
   m_projectionMatrixMode: 1
   m_SensorSize: {x: 36, y: 24}
   m_LensShift: {x: 0, y: 0}
@@ -1643,7 +1644,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -160.99982, y: -136.69995}
+  m_AnchoredPosition: {x: -161, y: -136.69995}
   m_SizeDelta: {x: 146.5, y: 95.9}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &725282246
@@ -1845,7 +1846,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -160.99982, y: -121.99994}
+  m_AnchoredPosition: {x: -161, y: -121.99994}
   m_SizeDelta: {x: 136.3, y: 150.2}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &850896656
@@ -8584,7 +8585,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -160.99982, y: -121.99994}
+  m_AnchoredPosition: {x: -161, y: -121.99994}
   m_SizeDelta: {x: 136, y: 136}
   m_Pivot: {x: 0, y: 1}
 --- !u!95 &1825623935

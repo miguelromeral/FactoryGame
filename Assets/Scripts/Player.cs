@@ -80,6 +80,7 @@ public class Player : MonoBehaviour
         bodySprites = gameObject.GetComponentsInChildren<SpriteRenderer>();
         
         lifeImageBack.transform.localScale = new Vector2(MaxBarSize, lifeImageBack.transform.localScale.y);
+        
     }
     
     private void UpdateLifeBar()
@@ -212,9 +213,10 @@ public class Player : MonoBehaviour
             }
         }
     }
-
+    
     private void Update()
     {
+
         if (Pause.IsPaused) {
             return;
         }
