@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 7902094801627083109}
   - component: {fileID: 7902094801627083114}
   - component: {fileID: 7902094801627083115}
-  - component: {fileID: 462396844}
   m_Layer: 0
   m_Name: boost_1
   m_TagString: Boost
@@ -127,22 +126,3 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.5680935, y: 2.1102815}
   m_EdgeRadius: 0
---- !u!95 &462396844
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7902094801627083112}
-  m_Enabled: 0
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: f14d23a41e49641438929566074b4f22, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0

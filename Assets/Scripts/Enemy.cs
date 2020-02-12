@@ -15,7 +15,9 @@ public class Enemy : MonoBehaviour
     private float SlowSpeed = 4f;
 
     public GameObject explosion;
-   
+
+    private float randomXdirection;
+    private float rotationSpeed;
 
     Player playerScript;
 
@@ -26,6 +28,20 @@ public class Enemy : MonoBehaviour
         speed = DefaultSpeed;
         // We get the player given its tag.
         playerScript = GameObject.FindWithTag("Player").GetComponent<Player>();
+
+        randomXdirection = Random.RandomRange(-1f, 1f);
+        rotationSpeed = Random.RandomRange(10f, 50f);
+    }
+
+    void FixedUpdate()
+    {
+        /*
+        float x = transform.position.x;
+        float y = transform.position.y;
+
+        transform.RotateAround(
+            new Vector3(-1 * Time.deltaTime, 0, 0),
+            new Vector3(0f, 0f, 1f), 70 * speed * Time.deltaTime);*/
     }
 
     // Update is called once per frame
@@ -44,28 +60,35 @@ public class Enemy : MonoBehaviour
                 speed = DefaultSpeed;
         }
 
-        // Vector2.down ==> new Vector2(0, -1)
-        transform.Translate(Vector2.down * speed * Time.deltaTime);
+        //speed = 0.5f;
 
-            //transform.Rotate(0, 0, 5f);
-            //r.rotation = r.angularVelocity * speed * Time.deltaTime;
-
-            //r.velocity = new Vector2(r.velocity.x * speed * Time.deltaTime, 0f);
-            //r.velocity = new Vector2(0f, r.velocity.y * speed);
+        transform.Rotate(0f, 0f, rotationSpeed * speed * Time.deltaTime);
+        //Vector2.down ==> new Vector2(0, -1)
+        /*transform.Translate(
+            new Vector2(1f * speed * Time.deltaTime,
+            -1* speed * Time.deltaTime), Space.World);
+            */
+       
         
-
-    }
-
-    void FixedUpdate()
-    {
+        //transform.Translate(Vector2.down * speed * Time.deltaTime);
+        
+        transform.Translate(
+            randomXdirection * speed * Time.deltaTime,
+            -1 * speed * Time.deltaTime,
+            0f,
+            Space.World);
+            
         /*
-        float angle;
-        Vector3 axis;
-        Quaternion.AngleAxis(180, Vector3.up).ToAngleAxis(out angle, out axis);
-        r.angularVelocity = axis.magnitude * angle;
-        */
-    }
+        float width = transform.localScale.x;
+        float height = transform.localScale.y;
 
+        transform.rotation = Quaternion.identity;
+        transform.RotateAround(transform.position + 
+            new Vector3(width / 2f, height / 2f, 0f), Vector3.forward, 1f);
+            */
+
+    }
+    
     // Raised when the BOX COLLIDER 2D has checked "IsTrigger" and detects a collision.
     private void OnTriggerEnter2D(Collider2D hitObject)
     {
