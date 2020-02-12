@@ -45,12 +45,15 @@ public class Movement : MonoBehaviour
         if (playerScript != null)
         {
             Vector3 px = Camera.main.WorldToScreenPoint(playerScript.transform.position);
-            
-            if (Input.touchCount > 0 && !playerScript.IsFrozen)
+
+            if (Input.touchCount > 0 && !playerScript.IsFrozen && Input.GetTouch(0).position.y <= Screen.height - (Screen.height / 5))
             {
+
+                Debug.Log("Pos: " + Input.GetTouch(0).position.y);
+
                 if (Input.GetTouch(0).position.x > ScreenWidth / 2)
                 {
-                    if(lastDirection == 1 && Input.GetTouch(0).phase == TouchPhase.Began
+                    if (lastDirection == 1 && Input.GetTouch(0).phase == TouchPhase.Began
                         && timeSinceLastTap > 0f && timeBetweenDoubleTaps <= 0f)
                     {
                         timeBetweenDoubleTaps = DefaultTimeBetweetnDoubleTaps;
@@ -64,7 +67,7 @@ public class Movement : MonoBehaviour
                     {
                         CheckAndPerformMove(px.x, 1f);
                     }
-                    
+
                     if (Input.GetTouch(0).phase == TouchPhase.Ended)
                     {
                         lastDirection = 1;
@@ -94,14 +97,16 @@ public class Movement : MonoBehaviour
                         timeSinceLastTap = DoubleTapGap;
                     }
                 }
+                
             }
             else
             {
                 RunCharacter(0f);
-                if(timeSinceLastTap <= 0f)
+                if (timeSinceLastTap <= 0f)
                     lastDirection = 0;
             }
         }
+        
 
         if(timeSinceLastTap > 0f)
         {

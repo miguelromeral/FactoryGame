@@ -97,7 +97,7 @@ MonoBehaviour:
   maxSpeed: 9
   damage: 0
   points: 400
-  boost: 15
+  boost: 10
   explosion: {fileID: 4504986859610226387, guid: f28220b0a5e49394281b2f4450f0f09b,
     type: 3}
 --- !u!61 &7902094801627083115

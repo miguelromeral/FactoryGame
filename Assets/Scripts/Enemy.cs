@@ -38,13 +38,13 @@ public class Enemy : MonoBehaviour
         {
             var limit = (tempX / 2) / 10f;
             randomXdirection = Random.RandomRange(-1f, limit);
-            Debug.Log("Position "+transform.position.x+" | Limit (-1, "+limit+")");
+            //Debug.Log("Position "+transform.position.x+" | Limit (-1, "+limit+")");
         }
         else
         {
             var limit = ((tempX / 2) / 10f);
             randomXdirection = Random.RandomRange(limit, 1f);
-            Debug.Log("Position " + transform.position.x + " | Limit (" + limit + ",1)");
+            //Debug.Log("Position " + transform.position.x + " | Limit (" + limit + ",1)");
         }
 
         rotationSpeed = Random.RandomRange(10f, 50f);
