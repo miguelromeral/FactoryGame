@@ -32,4 +32,14 @@ public class Main : MonoBehaviour
         SceneManager.LoadScene("Main");
         Pause.instance = null;
     }
+
+    public void GoHelp()
+    {
+        SceneManager.LoadScene("Help");
+    }
+
+    public void GoHelp2()
+    {
+        SceneManager.LoadScene("Help2");
+    }
 }
