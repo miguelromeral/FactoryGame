@@ -42,4 +42,9 @@ public class Main : MonoBehaviour
     {
         SceneManager.LoadScene("Help2");
     }
+
+    public void GoHistory()
+    {
+        SceneManager.LoadScene("History");
+    }
 }
