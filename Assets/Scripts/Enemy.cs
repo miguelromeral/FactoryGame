@@ -152,7 +152,9 @@ public class Enemy : MonoBehaviour
                     break;
             }
 
-            Instantiate(explosion, transform.position, Quaternion.identity);
+            if(explosion != null)
+                Instantiate(explosion, transform.position, Quaternion.identity);
+
             Destroy(gameObject);
         }else if (hitObject.tag == "Ground")
         {
@@ -168,7 +170,9 @@ public class Enemy : MonoBehaviour
                     break;
             }
 
-            Instantiate(explosion, transform.position, Quaternion.identity);
+            if (explosion != null)
+                Instantiate(explosion, transform.position, Quaternion.identity);
+
             Destroy(gameObject);
         }else if (hitObject.tag == "Wall")
         {

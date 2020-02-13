@@ -253,7 +253,7 @@ public class Player : MonoBehaviour
 
             textHits.text = "Golpes: " + count_hit.ToString();
             textBoosts.text = "Vidas: " + count_boosts.ToString();
-            textPowers.text = "Poten.: " + count_powers.ToString();
+            textPowers.text = "Poderes: " + count_powers.ToString();
             textPointsEnd.text = "Puntos: " + Points.ToString();
             
             Destroy(gameObject);
