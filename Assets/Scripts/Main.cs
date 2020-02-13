@@ -5,7 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class Main : MonoBehaviour
 {
-    
+    public void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+            Application.Quit();
+    }
+
     public void InitGame()
     {
         SceneManager.LoadScene("Game");
@@ -47,4 +52,6 @@ public class Main : MonoBehaviour
     {
         SceneManager.LoadScene("History");
     }
+
+
 }

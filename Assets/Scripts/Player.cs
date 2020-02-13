@@ -55,9 +55,9 @@ public class Player : MonoBehaviour
 
     public GameObject dashMove;
 
-    private int count_boosts = 0;
-    private int count_powers = 0;
-    private int count_hit = 0;
+    public static int count_boosts = 0;
+    public static int count_powers = 0;
+    public static int count_hit = 0;
 
     private SpriteRenderer[] bodySprites;
 
@@ -74,6 +74,9 @@ public class Player : MonoBehaviour
         Health = 3;
         Points = 0;
         totalTime = 0f;
+        count_boosts = 0;
+        count_powers = 0;
+        count_hit = 0;
     }
 
     // Start is called before the first frame update
@@ -187,7 +190,7 @@ public class Player : MonoBehaviour
 
     private void UpdatePoints()
     {
-        pointsText.text = Points.ToString();
+        pointsText.text = (Points == 0 ? "0" : Points.ToString("#,#", System.Globalization.CultureInfo.InvariantCulture));
     }
 
     private void PaintBody(bool freeze = false)

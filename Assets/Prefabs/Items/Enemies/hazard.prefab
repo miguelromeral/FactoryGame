@@ -96,7 +96,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minSpeed: 1
-  maxSpeed: 6
+  maxSpeed: 5
   damage: 1
   points: 50
   boost: -1

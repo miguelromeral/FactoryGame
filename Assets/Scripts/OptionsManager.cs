@@ -8,6 +8,7 @@ public class OptionsManager : MonoBehaviour
 
     //public int Health = 3;
 
+
     private void Awake()
     {
         if (Options == null)
@@ -21,4 +22,5 @@ public class OptionsManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
+    
 }

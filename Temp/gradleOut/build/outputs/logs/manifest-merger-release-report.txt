@@ -41,6 +41,8 @@ application
 ADDED from M:\Unity\UdemyGame\UdemyGame\Temp\gradleOut\src\main\AndroidManifest.xml:4:3-16:17
 	android:label
 		ADDED from M:\Unity\UdemyGame\UdemyGame\Temp\gradleOut\src\main\AndroidManifest.xml:4:90-122
+	android:roundIcon
+		ADDED from M:\Unity\UdemyGame\UdemyGame\Temp\gradleOut\src\main\AndroidManifest.xml:4:145-187
 	android:icon
 		ADDED from M:\Unity\UdemyGame\UdemyGame\Temp\gradleOut\src\main\AndroidManifest.xml:4:58-89
 	android:theme
