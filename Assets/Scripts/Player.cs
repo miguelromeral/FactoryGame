@@ -101,9 +101,9 @@ public class Player : MonoBehaviour
 
     public void Running(float input)
     {
+        //anim.SetBool("IsFaster", IsFaster);
         anim.SetBool("isRunning", input != 0);
-        anim.SetBool("IsFaster", IsFaster);
-        Debug.Log("isRunning: " + (input != 0) + " | IsFaster: " + IsFaster);
+        //Debug.Log("isRunning: " + (input != 0) + " | IsFaster: " + IsFaster);
 
         if (input > 0)
             transform.eulerAngles = new Vector3(0, 0, 0);
