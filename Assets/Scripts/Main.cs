@@ -52,6 +52,14 @@ public class Main : MonoBehaviour
     {
         SceneManager.LoadScene("History");
     }
+    public void GoCredits()
+    {
+        SceneManager.LoadScene("Credits");
+    }
+    public void ExitApplication()
+    {
+        Application.Quit();
+    }
 
 
 }
