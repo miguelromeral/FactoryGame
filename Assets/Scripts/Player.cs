@@ -248,7 +248,7 @@ public class Player : MonoBehaviour
             Strength = 0f;
             UpdateLifeBar();
             losePanel.SetActive(true);
-            totalTimeText.text = "Tiempo Total: "+ totalTime.ToString("#.#", System.Globalization.CultureInfo.InvariantCulture) + " s.";
+            totalTimeText.text = "Tiempo: "+ totalTime.ToString("#,#.#", System.Globalization.CultureInfo.InvariantCulture) + " s.";
             if (Health <= 0)
             {
                 GameObject.Find("Start_Text").SetActive(false);
