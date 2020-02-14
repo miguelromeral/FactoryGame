@@ -85,21 +85,29 @@ public class Player : MonoBehaviour
         anim = GetComponent<Animator>();
         source = GetComponent<AudioSource>();
         rb = GetComponent<Rigidbody2D>();
-        lifeText.text = Health.ToString();
+        if (lifeText != null)
+        {
+            lifeText.text = Health.ToString();
+        }
         UpdatePoints();
         speed = DefaultSpeed;
         Strength = MaxLife;
         bodySprites = gameObject.GetComponentsInChildren<SpriteRenderer>();
-        
-        lifeImageBack.transform.localScale = new Vector2(MaxBarSize, lifeImageBack.transform.localScale.y);
-        
+
+        if (lifeImage != null)
+        {
+            lifeImageBack.transform.localScale = new Vector2(MaxBarSize, lifeImageBack.transform.localScale.y);
+        }
     }
     
     private void UpdateLifeBar()
     {
-        float newWidth = Strength / MaxLife;
-        lifeImage.transform.localScale = 
-            new Vector2(newWidth, lifeImage.transform.localScale.y);
+        if (lifeImage != null)
+        {
+            float newWidth = Strength / MaxLife;
+            lifeImage.transform.localScale =
+                new Vector2(newWidth, lifeImage.transform.localScale.y);
+        }
     }
 
     public void Running(float input)
@@ -190,7 +198,8 @@ public class Player : MonoBehaviour
 
     private void UpdatePoints()
     {
-        pointsText.text = (Points == 0 ? "0" : Points.ToString("#,#", System.Globalization.CultureInfo.InvariantCulture));
+        if(pointsText != null)
+            pointsText.text = (Points == 0 ? "0" : Points.ToString("#,#", System.Globalization.CultureInfo.InvariantCulture));
     }
 
     private void PaintBody(bool freeze = false)
@@ -247,27 +256,32 @@ public class Player : MonoBehaviour
         {
             Strength = 0f;
             UpdateLifeBar();
-            losePanel.SetActive(true);
-            totalTimeText.text = "Tiempo: "+ totalTime.ToString("#,#.#", System.Globalization.CultureInfo.InvariantCulture) + " s.";
-            if (Health <= 0)
+            if (losePanel != null)
             {
-                GameObject.Find("Start_Text").SetActive(false);
-            }
+                losePanel.SetActive(true);
+                totalTimeText.text = "Tiempo: " + totalTime.ToString("#,#.#", System.Globalization.CultureInfo.InvariantCulture) + " s.";
+                if (Health <= 0)
+                {
+                    GameObject.Find("Start_Text").SetActive(false);
+                }
 
-            textHits.text = "Golpes: " + count_hit.ToString();
-            textBoosts.text = "Vidas: " + count_boosts.ToString();
-            textPowers.text = "Poderes: " + count_powers.ToString();
-            textPointsEnd.text = "Puntos: " + Points.ToString();
-            
+                textHits.text = "Golpes: " + count_hit.ToString();
+                textBoosts.text = "Vidas: " + count_boosts.ToString();
+                textPowers.text = "Poderes: " + count_powers.ToString();
+                textPointsEnd.text = "Puntos: " + Points.ToString();
+            }
             Destroy(gameObject);
         }
 
         if(PenaltyTime > 0f)
         {
             PenaltyTime -= Time.deltaTime;
-            
-            powerImage.gameObject.SetActive(true);
-            powerImage.transform.localScale = new Vector2(PenaltyTime / DefaultPenalty, powerImage.transform.localScale.y);
+
+            if (powerImage != null)
+            {
+                powerImage.gameObject.SetActive(true);
+                powerImage.transform.localScale = new Vector2(PenaltyTime / DefaultPenalty, powerImage.transform.localScale.y);
+            }
         }
         else
         {
@@ -293,7 +307,10 @@ public class Player : MonoBehaviour
             }
         }
 
-        remainText.text = ((int) Strength).ToString();
+        if (remainText != null)
+        {
+            remainText.text = ((int)Strength).ToString();
+        }
     }
     
 

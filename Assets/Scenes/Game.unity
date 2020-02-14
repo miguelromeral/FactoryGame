@@ -204,6 +204,7 @@ MonoBehaviour:
   Backgrounds:
   - {fileID: 1080819404551078236, guid: 2f4e3bad7aff5f24994ad0f3fd59b78c, type: 3}
   - {fileID: 5003273723954939479, guid: bcd17140d6431a14ea0cf42e08d132e2, type: 3}
+  - {fileID: 1415523321769522102, guid: 8d1c9f9983d30e94d88a46dc5c9b3114, type: 3}
   Background: {fileID: 765149178}
   Camera: {fileID: 519420031}
 --- !u!1 &106875239
@@ -3678,7 +3679,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -83.399994}
+  m_AnchoredPosition: {x: 0, y: -77.99997}
   m_SizeDelta: {x: 158.1, y: 94.599976}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1645448175

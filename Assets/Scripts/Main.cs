@@ -56,6 +56,10 @@ public class Main : MonoBehaviour
     {
         SceneManager.LoadScene("Credits");
     }
+    public void GoHelpMovement()
+    {
+        SceneManager.LoadScene("HelpMovement");
+    }
     public void ExitApplication()
     {
         Application.Quit();
