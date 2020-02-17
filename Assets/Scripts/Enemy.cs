@@ -129,26 +129,32 @@ public class Enemy : MonoBehaviour
                     break;
                 case "Boost":
                     playerScript.Collide(points, boost);
+                    AudioSource.PlayClipAtPoint(GetComponent<RandomSound>().GetRandom(), transform.position, 1f);
                     break;
                 case "Power_Freeze":
                     playerScript.Collide(points, boost);
                     playerScript.Freeze();
+                    AudioSource.PlayClipAtPoint(GetComponent<RandomSound>().GetRandom(), transform.position, 1f);
                     break;
                 case "Power_Fast":
                     playerScript.Collide(points, boost);
                     playerScript.Faster();
+                    AudioSource.PlayClipAtPoint(GetComponent<RandomSound>().GetRandom(), transform.position, 1f);
                     break;
                 case "Power_Slow":
                     playerScript.Collide(points, boost);
                     playerScript.SlowEverything();
+                    AudioSource.PlayClipAtPoint(GetComponent<RandomSound>().GetRandom(), transform.position, 1f);
                     break;
                 case "Power_Shield":
                     playerScript.Collide(points, boost);
                     playerScript.Protect();
+                    AudioSource.PlayClipAtPoint(GetComponent<RandomSound>().GetRandom(), transform.position, 1f);
                     break;
                 case "Power_Hide":
                     playerScript.Collide(points, boost);
                     playerScript.Hide();
+                    AudioSource.PlayClipAtPoint(GetComponent<RandomSound>().GetRandom(), transform.position, 1f);
                     break;
             }
 
@@ -163,7 +169,7 @@ public class Enemy : MonoBehaviour
             {
                 case "Enemy":
                     playerScript.Collide(points, 0);
-                    AudioSource.PlayClipAtPoint(GetComponent<RandomSound>().GetRandom(), transform.position);
+                    AudioSource.PlayClipAtPoint(GetComponent<RandomSound>().GetRandom(), transform.position, 0.1f);
                     break;
                 default:
                     playerScript.Collide(0, 0);
