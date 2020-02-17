@@ -170,14 +170,13 @@ public class Enemy : MonoBehaviour
                 case "Enemy":
                     playerScript.Collide(points, 0);
                     AudioSource.PlayClipAtPoint(GetComponent<RandomSound>().GetRandom(), transform.position, 0.1f);
+                    if (explosion != null)
+                        Instantiate(explosion, transform.position, Quaternion.identity);
                     break;
                 default:
                     playerScript.Collide(0, 0);
                     break;
             }
-
-            if (explosion != null)
-                Instantiate(explosion, transform.position, Quaternion.identity);
 
             Destroy(gameObject);
         }else if (hitObject.tag == "Wall")

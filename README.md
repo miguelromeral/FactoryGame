@@ -64,6 +64,7 @@ Take into account that the application is only in Spanish, so if you need any in
 
 Version|Code|Changes
 --- | --- | ---
+1.3|4|Added more SFX effects and particles to item touches.
 1.2|3|Added another background (parking lot). Also, now it can rain sometimes, which will make harder the game.
 1.1|2|Changed some HUD that don't fit on big screens.
 1.0|1|First Version. Release on Beta Channel.
